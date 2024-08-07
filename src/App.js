@@ -110,10 +110,15 @@ function App() {
       
       <input onChange={(e)=>{ setInput(e.target.value) }}></input>
       <button onClick={()=>{
+        if(input === null || input ==='') {
+          alert('내용을 입력해주세요.');
+          return;
+        }
+
         // input값을 title array에 추가
         copyTitles.unshift(input);
         copyLikes.unshift(0);
-        copyDates.unshift('2024-08-07 발행');
+        copyDates.unshift(new Date().toDateString());
 
         setTitle(copyTitles);
         setLikes(copyLikes);

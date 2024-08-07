@@ -2,7 +2,7 @@
 
 import logo from "./logo.svg";
 import "./App.css";
-import { useState } from "react";
+import React, { useState } from "react";
 
 function App() {
   
@@ -131,6 +131,7 @@ function App() {
         modal === true ? <Modal color={'skyblue'} title={title} setTitle={setTitle} titleIndex={titleIndex}/> : null
       }
        
+      <Modal2 name="lee"/>
     </div>
   );
 }
@@ -150,6 +151,32 @@ function Modal(props) {
       </div>
     </>
   );
+}
+
+// 클래스 컴포넌트 만드는 법
+class Modal2 extends React.Component {
+  // 부모가 보낸 props가 있는 경우...
+  constructor(props) {
+    super(props);
+
+    // state 만드는 법
+    this.state = {
+      name : "judy",
+      age : 20,
+      gender : "female",
+    }
+  }
+
+  render() {
+    return(
+      <div>클래스 컴포넌트로 만든 모달, {this.state.name}, {this.props.name}
+        <button onClick={()=>{
+          // state 변경하는 방법
+          this.setState({name: 'hohohalmee'});
+        }}>state변경</button>
+      </div>
+    )
+  }
 }
 
 export default App;

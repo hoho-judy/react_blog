@@ -6,7 +6,6 @@ import React, { useState } from "react";
 
 function App() {
   
-  let post = "강남 우동 맛집";
   let [title, setTitle] = useState(['코딩 애플 후기', '뷰란 무엇인가?', '리액트 강의 추천']);
   let [titleIndex, setTitleIndex] = useState(0);
   let [likes, setLikes] = useState([0, 0, 0]); // state 바꿀 때는 state를 바꾸는 전용 함수를 써야함. 그래야 html 자동 재렌더링됨
@@ -20,7 +19,7 @@ function App() {
 
   // onClick 등 이벤트 핸들러에는 무조건 함수만 들어가야한다.
   // 함수를 바깥에 정의하고 함수명만 써도 되고, 함수 자체를 작성해도 됨
-  // function test() {
+  // function doLike() {
   //   console.log('좋아요 클릭');
   // }
 
@@ -30,25 +29,26 @@ function App() {
         {/* <h4 style={ {color : 'red', fontSize: '16px', } }>블로그임</h4> */}
         <h4>리액트 실습 블로그</h4>
       </div>
-      <button onClick={ ()=> {
-      //  let copyTitles = [...title];
-        copyTitles.sort((a, b)=>{
-          if(a > b) {
-            return 1;
-          } else if(a < b) {
-            return -1;
-          } else {
-            return 0;
-          }
-        })
-        setTitle(copyTitles);
-      }}>가나다순정렬</button>
-      <button onClick={ ()=>{ 
-        //  let copyTitles = [...title]; // 원본데이터를 보존하기 위해 카피본을 만들어서 카피본 데이터를 수정
-          copyTitles[0] = 'vue 강의 추천';
-          setTitle(copyTitles); 
-        }}>제목바꾸기</button>
-
+      <div className="buttons">
+        <button onClick={ ()=> {
+        //  let copyTitles = [...title];
+          copyTitles.sort((a, b)=>{
+            if(a > b) {
+              return 1;
+            } else if(a < b) {
+              return -1;
+            } else {
+              return 0;
+            }
+          })
+          setTitle(copyTitles);
+        }}>가나다순정렬</button>
+        <button onClick={ ()=>{ 
+          //  let copyTitles = [...title]; // 원본데이터를 보존하기 위해 카피본을 만들어서 카피본 데이터를 수정
+            copyTitles[0] = 'vue 강의 추천';
+            setTitle(copyTitles); 
+          }}>제목바꾸기</button>
+      </div>
       {/* <div className="list">
         <h4>{ title[0] } <span onClick={ ()=>{ setLikes(likes+1) } }>👍</span> { likes } </h4>
         <p>8월 6일 발행</p>

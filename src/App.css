@@ -27,6 +27,18 @@ div {
   text-align: left;
 }
 
+.buttons {
+  margin: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+}
+
+.buttons > button {
+  margin-right: 8px;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
